@@ -11,4 +11,11 @@ export class MarkdownController {
   ): Promise<{ html: string; frontmatter: any }> {
     return this.markdownService.parseMarkdownFile(slug);
   }
+
+  @Get('nvim/:slug')
+  async getNvimMarkdownFile(
+    @Param('slug') slug: string,
+  ): Promise<{ html: string; frontmatter: any }> {
+    return this.markdownService.parseNvimMarkdownFileFromOpenWiki(slug);
+  }
 }

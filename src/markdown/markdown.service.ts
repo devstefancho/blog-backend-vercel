@@ -23,4 +23,21 @@ export class MarkdownService {
       frontmatter: parsedMarkdown.data,
     };
   }
+
+  async parseNvimMarkdownFileFromOpenWiki(
+    filePath: string,
+  ): Promise<{ html: string; frontmatter: any }> {
+    const fullPath = path.join(
+      process.cwd(),
+      'data/blog/open-wiki/areas/nvim',
+      `${filePath}.md`,
+    );
+    const fileContents = fs.readFileSync(fullPath, 'utf8');
+    const parsedMarkdown = matter(fileContents);
+
+    return {
+      html: marked(parsedMarkdown.content) as string,
+      frontmatter: parsedMarkdown.data,
+    };
+  }
 }
