@@ -29,7 +29,7 @@ export class MarkdownService {
   ): Promise<{ html: string; frontmatter: any }> {
     const fullPath = path.join(
       process.cwd(),
-      'data/blog/open-wiki/areas/nvim',
+      'data/blog/areas/nvim',
       `${filePath}.md`,
     );
     const fileContents = fs.readFileSync(fullPath, 'utf8');
