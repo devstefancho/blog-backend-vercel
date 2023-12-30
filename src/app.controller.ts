@@ -9,4 +9,9 @@ export class AppController {
   getHello(): string {
     return this.appService.getHello();
   }
+
+  @Get('blog-list')
+  getJsonList(): any {
+    return this.appService.getJsonList();
+  }
 }
